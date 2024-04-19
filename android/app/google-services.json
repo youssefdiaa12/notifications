@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "809265672060",
+    "project_id": "notification-dada12",
+    "storage_bucket": "notification-dada12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809265672060:android:77e62e90c6145f2c7c3ef9",
+        "android_client_info": {
+          "package_name": "com.example.notifications"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqSGdMnHuqfvL8WZLFy0YPekAsRhwJWtU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
