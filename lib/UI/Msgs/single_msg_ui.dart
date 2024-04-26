@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:notifications/constants.dart';
+import 'package:notifications/Common/constants.dart';
 import 'package:notifications/model/fireBase.dart';
 import 'package:notifications/model/msgDao.dart';
 @immutable

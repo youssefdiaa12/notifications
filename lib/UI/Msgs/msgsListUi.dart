@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notifications/UI/single_msg_ui.dart';
-import 'package:notifications/constants.dart';
+import 'package:notifications/Common/constants.dart';
+import 'package:notifications/UI/Msgs/single_msg_ui.dart';
 import 'package:notifications/fcm_helper.dart';
 import 'package:notifications/model/fireBase.dart';
 import 'package:notifications/model/msgDao.dart';

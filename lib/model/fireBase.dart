@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:notifications/constants.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:notifications/Common/constants.dart';
 import 'package:notifications/model/msgDao.dart';
+import 'dart:io';
 
 class FireBaseData {
   static CollectionReference<msgDao> getMsgsCollection({String? id}) {
@@ -31,6 +33,32 @@ class FireBaseData {
     var data = getMsgsCollection(id: id).snapshots();
     yield* data.map((snapshot) =>
         snapshot.docs.map((snapshot) => snapshot.data()).toList());
+  }
+
+  static Future <void> UploadFile(File file, String path) async {
+    // Create a storage reference from our app
+    final storageRef = FirebaseStorage.instance.ref();
+    final fileRef = storageRef.child(path);
+    await fileRef.putFile(file);
+    final snapshot = await fileRef.getDownloadURL();
+    print('Uploaded file: $snapshot');
+  }
+
+  static Future<List<String>> getFiles(String path) async {
+    final storageRef = FirebaseStorage.instance.ref();
+    final fileRef = storageRef.child(path);
+    try {
+      final ListResult result = await fileRef.listAll();
+      List<String> files = [];
+      for (final ref in result.items) {
+        final downloadUrl = await ref.getDownloadURL();
+        files.add(downloadUrl);
+      }
+      return files;
+    } catch (e) {
+      print('Error getting files: $e');
+      return [];
+    }
   }
 
 }
